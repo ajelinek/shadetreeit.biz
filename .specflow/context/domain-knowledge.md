@@ -130,6 +130,18 @@ These are research-informed buyer hypotheses to validate, not customer interview
 - **For feature planning**: Prioritize accurate service content, a concise credible bio, working direct-contact links, mobile/accessibility fundamentals, and strong sharing metadata. Do not add forms, scheduling, a feed, case studies, metrics, or tracking to imitate agency templates.
 - **For later engagement discovery**: Ask about a real task, current systems, sensitive information, responsible staff, failure recovery, and success criteria. These are private scoping topics, not mandatory extra website sections.
 
+## 8a. Owner Decisions — November 16, 2026
+
+These owner decisions update earlier assumptions above where they conflict.
+
+- **Primary reader is the referral partner**: EOS implementers, business coaches, bookkeepers, and small tech shops who need to recognize when to introduce a client. Owners finding the site directly remain a secondary audience.
+- **Fractional CTO / advisor offering**: Adam also works as a fractional CTO, guiding a company or a small engineering team through a major project, improving how that team works, and then handing the work over. It is presented as a way of working alongside hands-on building, not as a fifth service group. The term appears only in the "Ways to work together" band; the hero uses plain language.
+- **Engagement intent**: The goal is client self-sufficiency. Long-term support of custom software is offered when it is the better fit.
+- **EOS references**: Light references are allowed where they fit naturally (Scorecard, Level 10), together with a trademark/non-affiliation notice. Still no claim of EOS certification or affiliation.
+- **Background claims**: Employment history is described without naming the employer (more than 20 years at a Fortune 100 company, mainframe developer to Director of Engineering leading 14 managers and 300+ people), sourced from Adam's LinkedIn profile.
+- **Contact promise**: Reply within one business day; the phone line accepts calls or texts.
+- **Structured data**: JSON-LD is permitted. It is the only `<script>` on the page and does no tracking.
+
 ## 9. Sources & Confidence Notes
 
 All observations were researched live on November 16, 2026. Sources below are primary institutional guidance, government survey analysis, or vendor documentation. Guidance establishes recommended practice—not verified behavior of this business’s customers.

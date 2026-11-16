@@ -1,0 +1,7 @@
+.notFound { max-width: 44rem; min-height: 100vh; margin: auto; padding: var(--space-4) 7%; display: grid; align-content: center; }
+.eyebrow { color: var(--text-accent-strong); font-size: .7rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+.heading { margin: 1.4rem 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.5rem); letter-spacing: -.055em; line-height: 1.05; }
+.heading em { color: var(--text-accent); }
+.copy { color: var(--text-muted); font-size: var(--text-body); line-height: 1.75; }
+.home { display: inline-flex; align-items: center; gap: 1.5rem; min-height: 56px; padding: .8rem 1.25rem; margin-top: 1.1rem; justify-self: start; color: var(--text-on-action); background: var(--action-primary); text-decoration: none; font-weight: 700; }
+.home:hover { background: var(--action-hover); }

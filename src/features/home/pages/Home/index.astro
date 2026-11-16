@@ -1,14 +1,29 @@
 ---
 import { Image } from 'astro:assets';
-import Shell from '../../../../app/Shell.astro';
+import { Icon, Shell } from '@app';
 import portrait from '../../../../assets/adam.jpg';
-import { business, services } from '../../content';
+import tree from '../../../../assets/tree.png';
+import { business, services, steps, waysToWork } from '../../content';
 import styles from './styles.module.css';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: business.name,
+  url: 'https://shadetreeit.biz/',
+  image: 'https://shadetreeit.biz/share.png',
+  description: business.description,
+  email: business.email,
+  telephone: '+1-309-750-1461',
+  founder: { '@type': 'Person', name: business.owner, jobTitle: 'Owner', sameAs: [business.linkedIn, business.medium] },
+  sameAs: [business.linkedIn, business.medium],
+  knowsAbout: [...services.map((service) => service.title), 'Fractional CTO'],
+};
 ---
-<Shell>
+<Shell name={business.name} description={business.description} jsonLd={jsonLd}>
   <a class={styles.skip} href="#main">Skip to content</a>
   <header class={styles.header}>
-    <a class={styles.brand} href="#top"><img src="/tree.png" alt="" width="42" height="42" /><span>{business.name}</span></a>
+    <a class={styles.brand} href="#top"><Image src={tree} alt="" width={42} height={42} /><span>{business.name}</span></a>
     <nav class={styles.nav} aria-label="Main navigation">
       <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
     </nav>
@@ -16,26 +31,54 @@ import styles from './styles.module.css';
   <main id="main">
     <section class={styles.hero} id="top" aria-labelledby="hero-title">
       <div class={styles.heroContent}>
-        <p class={styles.eyebrow}><span></span> A little more possible</p>
-        <h1 id="hero-title">Less busywork.<br />Better decisions.<br /><em>More room to grow.</em></h1>
-        <p class={styles.heroCopy}>Practical technology and thoughtful guidance for small businesses, whether you're just getting started or ready for what's next.</p>
-        <a class={styles.primaryLink} href="#contact">Let's talk about your business <span aria-hidden="true">↗</span></a>
+        <p class={styles.eyebrow}><span class={styles.eyebrowMark}></span> A little more possible</p>
+        <h1 class={styles.heroHeading} id="hero-title">Less busywork.<br />Better decisions.<br /><em class={styles.headingAccent}>More room to grow.</em></h1>
+        <p class={styles.heroCopy}>Practical help for small businesses and the people who support them, whether you need big-picture technology guidance or hands-on building.</p>
+        <a class={styles.primaryLink} href="#contact">Let's talk about your business <Icon name="arrow-down" /></a>
       </div>
-      <div class={styles.heroArt} aria-hidden="true"><div class={styles.orbit}><img src="/tree.png" alt="" width="407" height="407" /></div><p>GOOD IDEAS<br />GROW HERE <span>✳</span></p></div>
-      <p class={styles.heroFoot}>TECHNOLOGY <span> / </span> PEOPLE <span> / </span> POSSIBILITY</p>
+      <div class={styles.heroArt} aria-hidden="true"><div class={styles.orbit}><Image src={tree} alt="" width={420} height={420} loading="eager" /></div></div>
     </section>
     <section class={styles.services} id="services" aria-labelledby="services-title">
-      <div class={styles.sectionIntro}><p class={styles.eyebrow}>01 / HOW I CAN HELP</p><div><h2 id="services-title">Good work starts with <em>the right tools.</em></h2><p>Technology should make your business easier to run—not give you one more thing to manage. Let's find a practical way forward, together.</p></div></div>
+      <div class={styles.sectionIntro}><p class={styles.eyebrow}>How I can help</p><div><h2 class={styles.sectionHeading} id="services-title">Good work starts with <em class={styles.headingAccent}>the right tools.</em></h2><p class={styles.bodyCopy}>Technology should make your business easier to run, with less for you to manage. If you're a coach or advisor to business owners, I'm glad to work alongside you.</p></div></div>
       <div class={styles.serviceList}>
-        {services.map((service) => <article class={styles.service}><span class={styles.serviceNumber}>{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><span class={styles.serviceArrow} aria-hidden="true">↗</span></article>)}
+        {services.map((service) => (
+          <article class={styles.service}>
+            <span class={styles.serviceNumber}>{service.number}</span>
+            <h3>{service.title}</h3>
+            <div class={styles.serviceBody}>
+              <p>{service.description}</p>
+              <ul class={styles.painPoints}>{service.painPoints.map((painPoint) => <li>{painPoint}</li>)}</ul>
+            </div>
+          </article>
+        ))}
       </div>
-      <p class={styles.additional}>And if your online presence needs attention, I can help with <strong>websites, your digital footprint, and basic SEO</strong>, too.</p>
+      <div class={styles.ways} aria-labelledby="ways-title">
+        <p class={styles.eyebrow} id="ways-title">Ways to work together</p>
+        <div class={styles.waysGrid}>
+          {waysToWork.map((way) => <div><h3>{way.title}</h3><p>{way.description}</p></div>)}
+        </div>
+      </div>
     </section>
     <section class={styles.about} id="about" aria-labelledby="about-title">
-      <div class={styles.portraitWrap}><Image src={portrait} alt="Adam Jelinek, owner of ShadeTree.IT LLC" width={700} height={700} class={styles.portrait} /><span class={styles.portraitCaption}>THE PERSON BEHIND THE WORK <span>↗</span></span></div>
-      <div class={styles.aboutCopy}><p class={styles.eyebrow}>02 / A PERSONAL APPROACH</p><h2 id="about-title">Technology is better when it <em>works for people.</em></h2><p>I'm Adam. My background spans software engineering, technology leadership, process improvement, and data. I've seen how the right tools and a clear plan can help people do their best work.</p><p>I bring that experience to small businesses with a straightforward, personal approach: listen first, understand what matters, and build from there.</p><p class={styles.signature}>Adam Jelinek <span>— Owner, ShadeTree.IT LLC</span></p></div>
+      <div class={styles.portraitWrap}><Image src={portrait} alt="Adam Jelinek, owner of ShadeTree.IT LLC" width={700} height={700} class={styles.portrait} /></div>
+      <div class={styles.aboutCopy}><p class={styles.eyebrow}>A personal approach</p><h2 class={styles.sectionHeading} id="about-title">Technology is better when it <em class={styles.headingAccent}>works for people.</em></h2><p class={styles.bodyCopy}>I'm Adam. I've spent more than 20 years in technology at a Fortune 100 company, growing from a mainframe developer to a Director of Engineering. Along the way, I've modernized decades-old systems, taken software releases from every six months to every week, built data platforms, and coached leaders. Before all that, I ran my own computer repair and networking business.</p><p class={styles.bodyCopy}>I bring that experience to small businesses with a straightforward, personal approach: listen first, understand what matters, and build toward a team that can run things on its own.</p><p class={styles.signature}>Adam Jelinek <span>— Owner, ShadeTree.IT LLC</span></p><p class={styles.profileLinks}><a href={business.linkedIn}><Icon name="linkedin" /> LinkedIn</a><a href={business.medium}><Icon name="medium" /> Writing on Medium</a></p></div>
     </section>
-    <section class={styles.contact} id="contact" aria-labelledby="contact-title"><div><p class={styles.eyebrow}>03 / LET'S CONNECT</p><h2 id="contact-title">What's on your <em>mind?</em></h2><p>Have an idea, a challenge, or just a question? I'd love to hear about your business and what you're working toward.</p></div><div class={styles.contactLinks}><a href={`mailto:${business.email}`}>{business.email}<span aria-hidden="true">↗</span></a><a href={business.phoneHref}>{business.phone}<span aria-hidden="true">↗</span></a><p>Reach out in whatever way feels right.</p></div></section>
+    <section class={styles.contact} id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class={styles.eyebrow}>Let's connect</p>
+        <h2 class={styles.sectionHeading} id="contact-title">What's on your <em class={styles.headingAccent}>mind?</em></h2>
+        <p class={styles.bodyCopy}>Have an idea, a challenge, or just a question? I'd love to hear about your business and what you're working toward.</p>
+      </div>
+      <ol class={styles.steps}>{steps.map((step) => <li><span class={styles.serviceNumber}>{step.number}</span><div><strong>{step.title}</strong><p>{step.description}</p></div></li>)}</ol>
+      <div class={styles.contactLinks}>
+        <a href={business.emailHref}><span class={styles.contactLabel}>Email</span><span class={styles.contactValue}>{business.email}</span><Icon name="arrow-right" class={styles.contactArrow} /></a>
+        <a href={business.phoneHref}><span class={styles.contactLabel}>Call or text</span><span class={styles.contactValue}>{business.phone}</span><Icon name="arrow-right" class={styles.contactArrow} /></a>
+      </div>
+    </section>
   </main>
-  <footer class={styles.footer}><p>© {new Date().getFullYear()} {business.name}</p><nav aria-label="Social links"><a href={business.linkedIn}>LinkedIn ↗</a><a href={business.medium}>Writing on Medium ↗</a></nav><a href="#top">Back to top ↑</a></footer>
+  <footer class={styles.footer}>
+    <p>© {new Date().getFullYear()} {business.name}</p>
+    <nav aria-label="Social links"><a href={business.linkedIn}><Icon name="linkedin" /> LinkedIn</a><a href={business.medium}><Icon name="medium" /> Writing on Medium</a></nav>
+    <a href="#top">Back to top <Icon name="arrow-up" /></a>
+  </footer>
 </Shell>

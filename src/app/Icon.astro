@@ -1,0 +1,44 @@
+---
+/**
+ * Decorative icons that inherit text color and scale with font size.
+ * Arrows are stroke icons (Lucide geometry); brand marks are simplified solid glyphs.
+ */
+const icons = {
+  'arrow-right': { solid: false, body: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>' },
+  'arrow-down': { solid: false, body: '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>' },
+  'arrow-up': { solid: false, body: '<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>' },
+  'linkedin': {
+    solid: true,
+    body: '<path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zM5.4 7.2a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0-3.2 0zM5.6 9.5h2.8V18H5.6zM10.3 9.5H13v1.2c.5-.8 1.5-1.4 2.8-1.4 2.1 0 3.4 1.3 3.4 3.9V18h-2.8v-4.4c0-1.2-.5-1.9-1.5-1.9-1.1 0-1.9.8-1.9 2V18h-2.7z"/>',
+  },
+  'medium': {
+    solid: true,
+    body: '<circle cx="6.6" cy="12" r="5.6"/><ellipse cx="16.9" cy="12" rx="2.9" ry="5.3"/><ellipse cx="22" cy="12" rx="1" ry="4.8"/>',
+  },
+} as const;
+
+interface Props {
+  name: keyof typeof icons;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+const { solid, body } = icons[name];
+---
+<svg
+  class:list={['icon', className]}
+  viewBox="0 0 24 24"
+  width="1em"
+  height="1em"
+  fill={solid ? 'currentColor' : 'none'}
+  stroke={solid ? 'none' : 'currentColor'}
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+  set:html={body}
+/>
+<style>
+  .icon { display: inline-block; flex-shrink: 0; vertical-align: -0.125em; }
+</style>
