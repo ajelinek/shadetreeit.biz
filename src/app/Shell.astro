@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+import { business } from '../features/home/content';
+const title = 'ShadeTree.IT LLC | Practical technology for small business';
+const image = 'https://shadetreeit.biz/share.png';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={business.description} />
+    <link rel="canonical" href="https://shadetreeit.biz/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shadetreeit.biz/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={business.description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ShadeTree.IT LLC: Less busywork. Better decisions. More room to grow." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={business.description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content="ShadeTree.IT LLC: Less busywork. Better decisions. More room to grow." />
+  </head>
+  <body><slot /></body>
+</html>

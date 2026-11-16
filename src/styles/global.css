@@ -1,0 +1,13 @@
+:root {
+  --ink: #182e42; --muted: #455b6a; --blue: #326fc4; --blue-dark: #143d73;
+  --paper: #f7f5ed; --white: #fffefa; --line: #d6ddd9; --pale: #e5edf5;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+img { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
