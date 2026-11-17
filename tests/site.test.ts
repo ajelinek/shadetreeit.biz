@@ -12,7 +12,7 @@ function page() {
 test('generated page has business identity, hierarchy and services', () => {
   const html = page();
   assert.match(html, /ShadeTree\.IT LLC/);
-  assert.deepEqual([...html.matchAll(/<(h[1-6])\b/g)].map(match => match[1]), ['h1', 'h2', 'h3', 'h3', 'h3', 'h3', 'h3', 'h3', 'h2', 'h2']);
+  assert.deepEqual([...html.matchAll(/<(h[1-6])\b/g)].map(match => match[1]), ['h1', 'h2', 'h3', 'h3', 'h3', 'h3', 'h3', 'h4', 'h4', 'h2', 'h2', 'h2']);
   for (const text of ['Less busywork.', 'Better decisions.', 'More room to grow.']) assert.ok(html.includes(text), text);
   const articles = [...html.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/g)];
   assert.equal(articles.length, 4);

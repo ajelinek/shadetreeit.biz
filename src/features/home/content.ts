@@ -5,6 +5,7 @@ export const business = {
   phoneHref: 'tel:+13097501461',
   email: 'adam@shadetreeit.biz',
   emailHref: 'mailto:adam@shadetreeit.biz?subject=Hello%20from%20shadetreeit.biz',
+  partnerEmailHref: 'mailto:adam@shadetreeit.biz?subject=Working%20alongside%20my%20clients',
   linkedIn: 'https://www.linkedin.com/in/adam-jelinek/',
   medium: 'https://medium.com/@shadetreeit',
   description: 'Practical AI, software, data, and leadership guidance for small businesses ready to work smarter and grow.',

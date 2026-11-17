@@ -39,7 +39,7 @@ const jsonLd = {
       <div class={styles.heroArt} aria-hidden="true"><div class={styles.orbit}><Image src={tree} alt="" width={420} height={420} loading="eager" /></div></div>
     </section>
     <section class={styles.services} id="services" aria-labelledby="services-title">
-      <div class={styles.sectionIntro}><p class={styles.eyebrow}>How I can help</p><div><h2 class={styles.sectionHeading} id="services-title">Good work starts with <em class={styles.headingAccent}>the right tools.</em></h2><p class={styles.bodyCopy}>Technology should make your business easier to run, with less for you to manage. If you're a coach or advisor to business owners, I'm glad to work alongside you.</p></div></div>
+      <div class={styles.sectionIntro}><p class={styles.eyebrow}>How I can help</p><div><h2 class={styles.sectionHeading} id="services-title">Good work starts with <em class={styles.headingAccent}>the right tools.</em></h2><p class={styles.bodyCopy}>Technology should make your business easier to run, with less for you to manage.</p></div></div>
       <div class={styles.serviceList}>
         {services.map((service) => (
           <article class={styles.service}>
@@ -52,16 +52,16 @@ const jsonLd = {
           </article>
         ))}
       </div>
-      <div class={styles.ways} aria-labelledby="ways-title">
-        <p class={styles.eyebrow} id="ways-title">Ways to work together</p>
+      <div class={styles.ways} role="group" aria-labelledby="ways-title">
+        <h3 class={styles.waysHeading} id="ways-title">Ways to work together</h3>
         <div class={styles.waysGrid}>
-          {waysToWork.map((way) => <div><h3>{way.title}</h3><p>{way.description}</p></div>)}
+          {waysToWork.map((way) => <div><h4>{way.title}</h4><p>{way.description}</p></div>)}
         </div>
       </div>
     </section>
     <section class={styles.about} id="about" aria-labelledby="about-title">
       <div class={styles.portraitWrap}><Image src={portrait} alt="Adam Jelinek, owner of ShadeTree.IT LLC" width={700} height={700} class={styles.portrait} /></div>
-      <div class={styles.aboutCopy}><p class={styles.eyebrow}>A personal approach</p><h2 class={styles.sectionHeading} id="about-title">Technology is better when it <em class={styles.headingAccent}>works for people.</em></h2><p class={styles.bodyCopy}>I'm Adam. I've spent more than 20 years in technology at a Fortune 100 company, growing from a mainframe developer to a Director of Engineering. Along the way, I've modernized decades-old systems, taken software releases from every six months to every week, built data platforms, and coached leaders. Before all that, I ran my own computer repair and networking business.</p><p class={styles.bodyCopy}>I bring that experience to small businesses with a straightforward, personal approach: listen first, understand what matters, and build toward a team that can run things on its own.</p><p class={styles.signature}>Adam Jelinek <span>— Owner, ShadeTree.IT LLC</span></p><p class={styles.profileLinks}><a href={business.linkedIn}><Icon name="linkedin" /> LinkedIn</a><a href={business.medium}><Icon name="medium" /> Writing on Medium</a></p></div>
+      <div class={styles.aboutCopy}><p class={styles.eyebrow}>A personal approach</p><h2 class={styles.sectionHeading} id="about-title">Technology is better when it <em class={styles.headingAccent}>works for people.</em></h2><p class={styles.bodyCopy}>I'm Adam. I've spent more than 20 years in technology at a Fortune 100 company, growing from a mainframe developer to a Director of Engineering. Along the way, I've modernized decades-old systems, taken software releases from every six months to daily, built data platforms, and coached leaders. Before all that, I ran my own computer repair and networking business.</p><p class={styles.bodyCopy}>I bring that experience to small businesses with a straightforward, personal approach: listen first, understand what matters, and build toward a team that can run things on its own.</p><p class={styles.signature}>Adam Jelinek <span>— Owner, ShadeTree.IT LLC</span></p><p class={styles.profileLinks}><a href={business.linkedIn}><Icon name="linkedin" /> LinkedIn</a><a href={business.medium}><Icon name="medium" /> Writing on Medium</a></p></div>
     </section>
     <section class={styles.contact} id="contact" aria-labelledby="contact-title">
       <div>
@@ -74,6 +74,13 @@ const jsonLd = {
         <a href={business.emailHref}><span class={styles.contactLabel}>Email</span><span class={styles.contactValue}>{business.email}</span><Icon name="arrow-right" class={styles.contactArrow} /></a>
         <a href={business.phoneHref}><span class={styles.contactLabel}>Call or text</span><span class={styles.contactValue}>{business.phone}</span><Icon name="arrow-right" class={styles.contactArrow} /></a>
       </div>
+    </section>
+    <section class={styles.partner} aria-labelledby="partner-title">
+      <div>
+        <h2 class={styles.partnerHeading} id="partner-title">Are you a business coach, EOS Implementer, or Bloom Growth coach?</h2>
+        <p>When your clients need help with technology, data, or process, I'm glad to work alongside you.</p>
+      </div>
+      <a class={styles.partnerLink} href={business.partnerEmailHref}>Let's talk about your clients <Icon name="arrow-right" /></a>
     </section>
   </main>
   <footer class={styles.footer}>
